@@ -1,0 +1,10 @@
+.err {
+  font-size: 11px;
+  color: red;
+  padding-left: 10px;
+}
+
+.form-control {
+  border: 1px;
+  background-color: rgb(196, 186, 186);
+}

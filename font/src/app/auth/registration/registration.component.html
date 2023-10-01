@@ -1,0 +1,124 @@
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <button class="btn" routerLink="/dashboard">Home Page</button>
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up Form</p>
+
+                <form class="mx-1 mx-md-4" [formGroup]="registrationForm">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1c" class="form-control" formControlName="firstName"
+                        required />
+                      <label class="form-label" for="form3Example1c">Name</label>
+                      <div class="err"
+                        *ngIf="registrationForm.controls.firstName.touched && registrationForm.controls.firstName.invalid">
+                        <span *ngIf="registrationForm.controls.firstName.errors.required">This field is mandatory</span>
+                        <span *ngIf="registrationForm.controls.firstName.errors.pattern">This field is invalid</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1cLast" class="form-control" formControlName="loginName" />
+                      <label class="form-label" for="form3Example1cLast">Login Name</label>
+                      <div class="err"
+                        *ngIf="registrationForm.controls.lastName.touched && registrationForm.controls.loginName.invalid">
+                        <span *ngIf="registrationForm.controls.loginName.errors.required">This field is mandatory</span>
+                        <span *ngIf="registrationForm.controls.loginName.errors.pattern">This field is invalid</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <textarea type="text" id="form3Example1cLast" class="form-control" formControlName="address"
+                        cols="5" rows="3"></textarea>
+                      <!-- <input type="text" id="form3Example1cLast" class="form-control" formControlName="address" /> -->
+                      <label class="form-label" for="form3Example1cLast">Address</label>
+
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="date" id="form3Example1cLast" class="form-control" formControlName="dob" />
+                      <label class="form-label" for="form3Example1cLast">Date Of Birth</label>
+
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" id="form3Example3c" formControlName="email" class="form-control" />
+                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <div class="err"
+                        *ngIf="registrationForm.controls.email.touched && registrationForm.controls.email.invalid">
+                        <span *ngIf="registrationForm.controls.email.errors.required">This field is mandatory</span>
+                        <span *ngIf="registrationForm.controls.email.errors.pattern">This field is invalid</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4c" formControlName="password" class="form-control" />
+                      <label class="form-label" for="form3Example4c">Password</label>
+                      <div class="err"
+                        *ngIf="registrationForm.controls.password.touched && registrationForm.controls.password.invalid">
+                        <span *ngIf="registrationForm.controls.password.errors.required">This field is mandatory</span>
+                        <span *ngIf="registrationForm.controls.password.errors.pattern">Password must contain at least
+                          one number, one uppercase and a lowercase letter
+                          and at least 6 characters<br>Password cannot contain whitespace</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="form3Example4cd" class="form-control" formControlName="conPass" />
+                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      <div class="err"
+                        *ngIf="registrationForm.controls.conPass.touched && registrationForm.controls.conPass.invalid">
+                        <span *ngIf="registrationForm.controls.conPass.errors.required">This field is mandatory</span>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="button" [disabled]="!registrationForm.valid" (click)="signUp()"
+                      class="btn btn-primary btn-lg">Register</button>
+                  </div>
+
+                </form>
+
+                <p>Already user? <a routerLink="/login"><b> Click to Login!!</b></a></p>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
